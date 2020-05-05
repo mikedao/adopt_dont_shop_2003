@@ -1,6 +1,6 @@
 require './spec/rails_helper'
 
-RSpec.describe "shelter show page", type: :feature do
+RSpec.describe "shelter edit page", type: :feature do
 
   before(:all) do
     @shelter1 = Shelter.create(name: "Angels With Paws", address: "2540 Youngfield St", city: "Lakewood", state: "CO", zip: "80215")
@@ -10,6 +10,18 @@ RSpec.describe "shelter show page", type: :feature do
   it "user goes to edit page after clicking 'Update Shelter'" do
     visit "/shelters/#{@shelter1.id}"
     click_link "Update Shelter"
+
     expect(current_path).to eq("/shelters/#{@shelter1.id}/edit")
+  end
+
+  it "user can update the shelter " do
+    visit "/shelters/#{@shelter1.id}/edit"
+    fill_in "address", with: "123 main st"
+    fill_in "state", with: "NM"
+    fill_in "zip", with: "12345"
+    click_button "Submit"
+
+    expect(current_path).to eq("/shelters/#{@shelter1.id}")
+    expect(page).to have_content("123 main st")
   end
 end
