@@ -1,10 +1,10 @@
 <h1>All Pets</h1>
 <% @pets.each do |pet| %>
-  <img src="<%= pet.image_path %>" alt="pet.image_path">
+  <img src="<%= pet.image_path %>" alt="<%= pet.image_path %>">
   <ul style="list-style-type:none;">
-    Name: <li>pet.name</li>
-    Approximate age: <li>pet.approximate_age</li>
-    Sex: <li>pet.sex</li>
-    Shelter: <li>pet.shelter</li>
+    <li>Name: <%= pet.name %></li>
+    <li>Approximate age: <%= pet.approximate_age %></li>
+    <li>Sex: <%= pet.sex %></li>
+    <li>Shelter: <%= pet.shelter.name %></li>
   </ul>
 <% end %>
