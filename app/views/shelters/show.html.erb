@@ -1,0 +1,26 @@
+<style media="screen">
+  input[type="submit"] {
+    background: none;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+  }
+</style>
+
+
+<h1><%= @shelter.name %></h1>
+<h2>
+  <%= @shelter.address %>,
+  <%= @shelter.city %>,
+  <%= @shelter.state %>
+  <%= @shelter.zip %>
+</h2>
+<a href="/shelters/<%= @shelter.id %>/edit">Update Shelter</a>
+<br><br>
+<form action="/shelters/<%= @shelter.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Shelter" id="Delete Shelter"/>
+</form>
