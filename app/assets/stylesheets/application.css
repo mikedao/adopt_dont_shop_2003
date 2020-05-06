@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+img {
+   width: 50px
+ }
+
+h1 {
+  color: blue
+}
+
+ul {
+  list-style-type: none;
+}
+
+input[type="submit"] {
+    background: none;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+  }
