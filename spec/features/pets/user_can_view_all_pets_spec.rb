@@ -12,5 +12,3 @@ RSpec.describe "pets index page", type: :feature do
     expect(page).to have_content(pet.shelter.name)
   end
 end
-
-#rails g migration CreatePet image_path:string name:string approximate_age:string sex:string shelter:string
