@@ -35,4 +35,17 @@ RSpec.describe "pet edit page", type: :feature do
     expect(page).to have_content("5")
     expect(page).to have_content("F")
   end
+
+  it "user can update from the pets index" do
+    visit "/pets"
+    click_link "update-pet-#{@pet.id}"
+    expect(current_path).to eq("/pets/#{@pet.id}/edit")
+  end
+
+  it "user can update from the shelter pets index" do
+    visit "shelters/#{@shelter.id}/pets"
+    click_link "update-pet-#{@pet.id}"
+    expect(current_path).to eq("/pets/#{@pet.id}/edit")
+  end
+
 end
