@@ -34,3 +34,9 @@ input[type="submit"] {
     color: blue;
     cursor: pointer;
   }
+
+  form {
+       display:inline;
+       margin:0px;
+       padding:0px;
+  }

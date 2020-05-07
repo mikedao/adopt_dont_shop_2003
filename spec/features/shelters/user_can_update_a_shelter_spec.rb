@@ -16,7 +16,6 @@ RSpec.describe "shelter edit page", type: :feature do
 
   it "user can access the edit page from the shelters index" do
     visit "/shelters"
-    save_and_open_page
     click_link "update-shelter-#{@shelter1.id}"
 
     expect(current_path).to eq("/shelters/#{@shelter1.id}/edit")

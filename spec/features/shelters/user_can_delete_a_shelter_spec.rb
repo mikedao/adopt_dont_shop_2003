@@ -14,4 +14,12 @@ RSpec.describe "shelter delete", type: :feature do
     expect(page).to_not have_content(@shelter1.name)
   end
 
+  it "user can delete from the shelters index" do
+    visit "/shelters"
+    save_and_open_page
+    click_on "delete-shelter-#{@shelter2.id}"
+    expect(current_path).to eq("/shelters")
+    expect(page).to_not have_content(@shelter2.name)
+  end
+
 end
