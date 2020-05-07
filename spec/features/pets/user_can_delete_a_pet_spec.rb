@@ -20,4 +20,18 @@ RSpec.describe "pet delete", type: :feature do
     expect(page).to_not have_content(@pet.name)
   end
 
+  it "user can delete a pet from the pets index" do
+    visit "/pets"
+    click_link "delete-pet-#{@pet.id}"
+    expect(current_path).to eq("/pets")
+    expect(page).to_not have_content(@pet.name)
+  end
+
+  it "user can delete a pet from the shelter pets index" do
+    visit "/shelters/#{@shelter.id}/pets"
+    click_link "delete-pet-#{@pet.id}"
+    expect(current_path).to eq("/pets")
+    expect(page).to_not have_content(@pet.name)
+  end
+
 end
