@@ -38,6 +38,12 @@ class PetsController < ApplicationController
       image_path: params[:pet][:image_path],
       description: params[:pet][:description],
       })
+    pet.save
     redirect_to "/pets/#{pet.id}"
+  end
+
+  def destroy
+    Pet.destroy(params[:id])
+    redirect_to "/pets"
   end
 end
