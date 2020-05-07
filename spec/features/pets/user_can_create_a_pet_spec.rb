@@ -33,6 +33,7 @@ RSpec.describe "user can create a pet", type: :feature do
     expect(current_path).to eq("/shelters/#{@shelter.id}/pets")
     expect(page).to have_content("Koa")
     expect(page).to have_content("4")
-    expect(page).to have_content("M")  end
+    expect(page).to have_content("M")
+  end
 
 end
