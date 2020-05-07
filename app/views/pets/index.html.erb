@@ -6,5 +6,6 @@
     <li>Approximate age: <%= pet.approximate_age %></li>
     <li>Sex: <%= pet.sex %></li>
     <li>Shelter: <%= pet.shelter.name %></li>
+    <li><%= link_to "Update Pet", "/pets/#{pet.id}/edit", id: "update-pet-#{pet.id}" %></li>
   </ul>
 <% end %>
