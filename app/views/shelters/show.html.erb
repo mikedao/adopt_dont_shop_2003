@@ -7,10 +7,6 @@
 </h2>
 <%= link_to "All Pets at #{@shelter.name}", "/shelters/#{@shelter.id}/pets" %>
 <br>
-<a href="/shelters/<%= @shelter.id %>/edit" id="update-shelter-<%= @shelter.id %>">Update Shelter</a>
+<%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit", id: "update-shelter-#{@shelter.id}"%>
 <br><br>
-<form action="/shelters/<%= @shelter.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Shelter" id="Delete Shelter"/>
-</form>
+<%= button_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
