@@ -21,14 +21,14 @@ RSpec.describe "pets index page", type: :feature do
   it "user can see each pet and information on the pets index page" do
     visit "/pets"
 
-    expect(page).to have_content(pet1.name)
-    expect(page).to have_content(pet1.approximate_age)
-    expect(page).to have_content(pet1.sex)
-    expect(page).to have_content(pet1.shelter.name)
-    expect(page).to have_content(pet2.name)
-    expect(page).to have_content(pet2.approximate_age)
-    expect(page).to have_content(pet2.sex)
-    expect(page).to have_content(pet2.shelter.name)
+    expect(page).to have_content(@pet1.name)
+    expect(page).to have_content(@pet1.approximate_age)
+    expect(page).to have_content(@pet1.sex)
+    expect(page).to have_content(@pet1.shelter.name)
+    expect(page).to have_content(@pet2.name)
+    expect(page).to have_content(@pet2.approximate_age)
+    expect(page).to have_content(@pet2.sex)
+    expect(page).to have_content(@pet2.shelter.name)
   end
 
   describe "user can visit the pets index from any page" do
@@ -47,7 +47,7 @@ RSpec.describe "pets index page", type: :feature do
     end
 
     it "can go to pet index from the pet show page" do
-      visit "/pet/#{@pet.id}"
+      visit "/pets/#{@pet1.id}"
       click_link "All Pets"
 
       expect(current_path).to eq("/pets")
