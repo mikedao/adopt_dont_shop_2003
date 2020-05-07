@@ -5,6 +5,8 @@
   <%= @shelter.state %>
   <%= @shelter.zip %>
 </h2>
+<%= link_to "All Pets at #{@shelter.name}", "/shelters/#{@shelter.id}/pets" %>
+<br>
 <a href="/shelters/<%= @shelter.id %>/edit" id="update-shelter-<%= @shelter.id %>">Update Shelter</a>
 <br><br>
 <form action="/shelters/<%= @shelter.id %>" method="post">
