@@ -1,9 +1,10 @@
 <h1>All Pets</h1>
-
-<a href="/shelters/<%= @shelter.id %>/pets/new">Create Pet</a>
+<h2>
+  <%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
+</h2>
 <% @shelter_pets.each do |pet| %>
-  <img src="<%= pet.image_path %>" alt="<%= pet.image_path %>">
-  <ul>
+  <ul class="pet_profile">
+    <img src="<%= pet.image_path %>" alt="<%= pet.image_path %>" class="pet_index_image">
     <li>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></li>
     <li>Approximate age: <%= pet.approximate_age %></li>
     <li>Sex: <%= pet.sex %></li>

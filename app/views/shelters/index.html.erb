@@ -1,9 +1,11 @@
 <h1>All Shelters</h1>
   <% @shelters.each do |shelter| %>
-    <div>
-      <%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %>
-      <%= link_to "Update Shelter", "/shelters/#{shelter.id}/edit", id: "update-shelter-#{shelter.id}" %>
-      <%= link_to "Delete Shelter", "/shelters/#{shelter.id}", id: "delete-shelter-#{shelter.id}", method: :delete %>
+    <div class="shelter">
+      <%= link_to "#{shelter.name}", "/shelters/#{shelter.id}", class: "shelter_name" %>
+      <%= link_to "Update Shelter", "/shelters/#{shelter.id}/edit", id: "update-shelter-#{shelter.id}",  class: "update_shelter" %>
+      <%= link_to "Delete Shelter", "/shelters/#{shelter.id}", id: "delete-shelter-#{shelter.id}",  class: "delete_shelter", method: :delete %>
     </div>
   <% end %>
-<%= link_to "New Shelter", "/shelters/new"  %>
+<footer>
+  <%= link_to "New Shelter", "/shelters/new"  %>
+</footer>
