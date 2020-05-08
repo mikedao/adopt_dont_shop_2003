@@ -33,11 +33,14 @@
    line-height: 3;
    color: black;
  }
- .shelter_name:link, .shelter_name:visited, .shelter_name:focus {
+ .shelter_name:link, .shelter_name:visited, .shelter_name:focus,
+ .delete_shelter:link, .delete_shelter:visited, .delete_shelter:focus,
+ .update_shelter:link, .update_shelter:visited, .update_shelter:focus
+  {
    background: gray;
  }
 
- .shelter_name:hover, .delete_shelter:hover, .update_shelter:hover  {
+ .shelter_name:hover, .delete_shelter:hover, .update_shelter:hover {
    background: orange;
  }
 
@@ -55,11 +58,6 @@
    text-align: center;
    line-height: 3;
    color: black;
- }
-
- .delete_shelter:link, .delete_shelter:visited, .delete_shelter:focus,
- .update_shelter:link, .update_shelter:visited, .update_shelter:focus {
-   background: gray;
  }
 
  .pet_profile{
