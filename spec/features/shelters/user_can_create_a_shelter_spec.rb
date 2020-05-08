@@ -14,7 +14,7 @@ RSpec.describe "shelter index", type: :feature do
     fill_in "address", with: "2540 Youngfield St"
     fill_in "state", with: "NM"
     fill_in "zip", with: "12345"
-    click_button "Create New Shelter"
+    click_button "Create Shelter"
 
     expect(current_path).to eq("/shelters")
     visit("/shelters")
