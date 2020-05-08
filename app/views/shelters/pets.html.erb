@@ -2,7 +2,7 @@
 <h2>
   <%= link_to "Create Pet", "/shelters/#{@shelter.id}/pets/new" %>
 </h2>
-<% @shelter_pets.each do |pet| %>
+<% @shelter.pets.each do |pet| %>
   <ul class="pet_profile">
     <img src="<%= pet.image_path %>" alt="<%= pet.image_path %>" class="pet_index_image">
     <li>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></li>
