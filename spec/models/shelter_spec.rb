@@ -29,8 +29,8 @@ RSpec.describe Shelter do
         approximate_age: "4",
         sex: "F",)
 
-        expect(shetler1.all_pets).to eq(2)
-        expect(shetler2.all_pets).to eq(1)
+        expect(shelter1.pet_count).to eq(2)
+        expect(shelter2.pet_count).to eq(1)
     end
   end
 end
