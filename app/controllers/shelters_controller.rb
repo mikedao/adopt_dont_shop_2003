@@ -3,7 +3,7 @@ class SheltersController < ApplicationController
     @shelters = Shelter.all
   end
 
-  def show    
+  def show
     @shelter = Shelter.find(params[:id])
   end
 
@@ -46,6 +46,5 @@ class SheltersController < ApplicationController
 
   def pets
     @shelter = Shelter.find(params[:id])
-    @shelter_pets = @shelter.pets
   end
 end
