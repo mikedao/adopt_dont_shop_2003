@@ -9,12 +9,14 @@ RSpec.describe "pets index page", type: :feature do
       name: "Bruno",
       approximate_age: "4",
       sex: "M",
+      adoption_status: "Pending",
       shelter_id: @shelter.id)
     @pet2 = Pet.create(
       image_path: "https://cdn.pixabay.com/photo/2015/11/17/13/13/dogue-de-bordeaux-1047521_1280.jpg",
       name: "Woody",
       approximate_age: "2",
       sex: "F",
+      adoption_status: "Adoptable",
       shelter_id: @shelter.id)
   end
 
@@ -29,6 +31,13 @@ RSpec.describe "pets index page", type: :feature do
     expect(page).to have_content(@pet2.approximate_age)
     expect(page).to have_content(@pet2.sex)
     expect(page).to have_content(@pet2.shelter.name)
+  end
+
+  it "pets are sorted by adoption status" do
+    visit "/pets"
+    within(".pets_list") do
+      expect(page.all('ul').last).to have_content("#{@pet1.name}")
+    end
   end
 
   describe "user can visit the pets index from any page" do
