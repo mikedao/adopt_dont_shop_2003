@@ -1,15 +1,15 @@
-<form class="create-new" action="/pets" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="pet[shelter_id]" value="<%= @shelter.id %>">
-  <label for="name">Name: </label>
-  <input type="text" name="pet[name]" id="name" value=""><br>
-  <label for="approximate_age">Approximate Age: </label>
-  <input type="text" name="pet[approximate_age]" id="approximate_age" value=""><br>
-  <label for="sex">Sex: </label>
-  <input type="text" name="pet[sex]" id="sex" value=""><br>
-  <label for="description">Description: </label>
-  <textarea name="pet[description]" id="description"></textarea>
-  <label for="image_path">Image URL: </label>
-  <textarea name="pet[image_path]" id="image_path"></textarea>
-  <button type="submit" id="Create Pet">Create Pet</button>
-</form>
+<h1>New Pet</h1>
+<%= form_tag "/pets" do %>
+  <%= label_tag :name, "Name" %>
+  <%= text_field_tag :name %>
+  <%= label_tag :description, "Description"  %>
+  <%= text_field_tag :description%>
+  <%= label_tag :approximate_age, "Approximate Age"  %>
+  <%= text_field_tag :approximate_age%>
+  <%= label_tag :sex, "Sex"  %>
+  <%= text_field_tag :sex%>
+  <%= label_tag :image_path, "Image Path"  %>
+  <%= text_field_tag :image_path%>
+  <%= hidden_field_tag :shelter_id, "#{@shelter.id}" %>
+  <%= submit_tag "Create Pet" %>
+<% end %>

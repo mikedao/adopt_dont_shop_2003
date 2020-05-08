@@ -4,9 +4,5 @@
 <p>Approximate Age: <%= @pet.approximate_age %> </p>
 <p>Sex: <%= @pet.sex %> </p>
 <p>Adoption status: <%= @pet.adoption_status %> </p>
-<a href="/pets/<%= @pet.id %>/edit" id="Update Pet">Update Pet</a>
-<form action="/pets/<%= @pet.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Pet" id="Delete Pet"/>
-</form>
+<%= link_to "Update Pet", "/pets/#{@pet.id}/edit", id: "update-pet-#{@pet.id}" %>
+<%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
