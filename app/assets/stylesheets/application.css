@@ -13,11 +13,6 @@
  *= require_tree .
  *= require_self
  */
-
- nav {
-
- }
-
  .nav_links {
    color: white;
    padding: 14px 25px;
@@ -25,6 +20,46 @@
    text-decoration: none;
    display: inline-block;
    background-color: blue;
+ }
+
+
+ .shelter_name{
+   outline: none;
+   text-decoration: none;
+   display: inline-block;
+   margin-bottom: 1%;
+   width: 19.5%;
+   text-align: center;
+   line-height: 3;
+   color: black;
+ }
+ .shelter_name:link, .shelter_name:visited, .shelter_name:focus {
+   background: gray;
+ }
+
+ .shelter_name:hover, .delete_shelter:hover, .update_shelter:hover  {
+   background: orange;
+ }
+
+ .shelter_name:active, .delete_shelter:active, .update_shelter:active  {
+   background: red;
+   color: white;
+ }
+
+ .update_shelter, .delete_shelter{
+   outline: none;
+   text-decoration: none;
+   display: inline-block;
+   width: 8%;
+   margin-bottom: 1%;
+   text-align: center;
+   line-height: 3;
+   color: black;
+ }
+
+ .delete_shelter:link, .delete_shelter:visited, .delete_shelter:focus,
+ .update_shelter:link, .update_shelter:visited, .update_shelter:focus {
+   background: gray;
  }
 
 img {
