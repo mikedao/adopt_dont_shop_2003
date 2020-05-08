@@ -73,6 +73,10 @@
    margin: 10px
  }
 
+ .pet-show-img{
+   width: 50%;
+ }
+
 h1 {
   color: blue
 }
