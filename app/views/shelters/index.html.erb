@@ -2,12 +2,8 @@
   <% @shelters.each do |shelter| %>
     <div>
       <%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %>
-      <a href="/shelters/<%= shelter.id %>/edit" id="update-shelter-<%= shelter.id %>">Update Shelter</a>
-      <form action="/shelters/<%= shelter.id %>" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete Shelter" id="delete-shelter-<%= shelter.id %>"/>
-      </form>
+      <%= link_to "Update Shelter", "/shelters/#{shelter.id}/edit", id: "update-shelter-#{shelter.id}" %>
+      <%= link_to "Delete Shelter", "/shelters/#{shelter.id}", id: "delete-shelter-#{shelter.id}", method: :delete %>
     </div>
   <% end %>
 <a href="/shelters/new">New Shelter</a>
