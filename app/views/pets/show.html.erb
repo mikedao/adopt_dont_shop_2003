@@ -3,6 +3,15 @@
 <p>Description: <%= @pet.description %> </p>
 <p>Approximate Age: <%= @pet.approximate_age %> </p>
 <p>Sex: <%= @pet.sex %> </p>
-<p>Adoption status: <%= @pet.adoption_status %> </p>
+<p>
+  Adoption status:
+  <%=
+    if @pet.adoption_status == true
+      "Adoptable"
+    else
+      "Pending"
+    end
+  %>
+</p>
 <%= link_to "Update Pet", "/pets/#{@pet.id}/edit", id: "update-pet-#{@pet.id}" %>
 <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
