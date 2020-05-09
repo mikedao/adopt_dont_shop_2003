@@ -13,16 +13,9 @@ class PetsController < ApplicationController
   end
 
   def create
-    @pet = Pet.create({
-      name: params[:name],
-      approximate_age: params[:approximate_age],
-      sex: params[:sex],
-      image_path: params[:image_path],
-      description: params[:description],
-      adoption_status: "Adoptable",
-      shelter_id: params[:shelter_id]
-      })
-    redirect_to "/shelters/#{@pet.shelter_id}/pets"
+    shelter = Shelter.find(params[:shelter_id])
+    shelter.pets.create!(pet_params)
+    redirect_to "/shelters/#{shelter.id}/pets"
   end
 
   def edit
@@ -31,13 +24,7 @@ class PetsController < ApplicationController
 
   def update
     pet = Pet.find(params[:id])
-    pet.update({
-      name: params[:name],
-      approximate_age: params[:approximate_age],
-      sex: params[:sex],
-      image_path: params[:image_path],
-      description: params[:description],
-      })
+    pet.update(pet_params)
     pet.save
     redirect_to "/pets/#{pet.id}"
   end
@@ -46,4 +33,17 @@ class PetsController < ApplicationController
     Pet.destroy(params[:id])
     redirect_to "/pets"
   end
+
+  private
+
+  def pet_params
+    params.permit(
+      :name,
+      :approximate_age,
+      :sex,
+      :image_path,
+      :description
+    )
+  end
+
 end
