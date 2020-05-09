@@ -32,6 +32,13 @@ class SheltersController < ApplicationController
 
   def pets
     @shelter = Shelter.find(params[:id])
+    if params[:adoption_status] == "true"
+      @pets = @shelter.pets.adoptable_only
+    elsif params[:adoption_status] == "false"
+      @pets = @shelter.pets.pending_only
+    else
+      @pets = @shelter.pets.order_by_adoption_status
+    end
   end
 
   private
