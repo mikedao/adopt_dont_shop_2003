@@ -62,4 +62,18 @@ RSpec.describe "pets index page", type: :feature do
       expect(current_path).to eq("/pets")
     end
   end
+
+  it "user can filter pets by adoption status" do
+    visit "/pets"
+    click_link "Show Adoptable Pets Only"
+    expect(current_path).to eq("/pets")
+    expect(page).to_not have_content(@pet1.name)
+    expect(page).to have_content(@pet2.name)
+
+    visit "/pets"
+    click_link "Show Pending Pets Only"
+    expect(current_path).to eq("/pets")
+    expect(page).to have_content(@pet1.name)
+    expect(page).to_not have_content(@pet2.name)
+  end
 end
