@@ -6,4 +6,5 @@ class Shelter < ApplicationRecord
   def pet_count
     pets.count
   end
+
 end

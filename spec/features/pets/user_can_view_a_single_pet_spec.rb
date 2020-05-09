@@ -10,7 +10,7 @@ RSpec.describe "pet show page", type: :feature do
                       approximate_age: "4",
                       sex: "M",
                       shelter_id: @shelter.id,
-                      adoption_status: "Adoptable")
+                      adoption_status: true)
   end
 
   it "user can see information for one pet" do
@@ -19,7 +19,7 @@ RSpec.describe "pet show page", type: :feature do
     expect(page).to have_content(@pet.description)
     expect(page).to have_content(@pet.approximate_age)
     expect(page).to have_content(@pet.sex)
-    expect(page).to have_content(@pet.adoption_status)
+    expect(page).to have_content("Adoptable")
   end
 
   it "user can go to pet show page from pets index" do
