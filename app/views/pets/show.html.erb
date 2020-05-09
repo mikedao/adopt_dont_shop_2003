@@ -13,5 +13,6 @@
     end
   %>
 </p>
+<%= link_to "Change to Adoption Pending", "/pets/#{@pet.id}/pending", method: :patch%>
 <%= link_to "Update Pet", "/pets/#{@pet.id}/edit", id: "update-pet-#{@pet.id}" %>
 <%= button_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>

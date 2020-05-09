@@ -39,8 +39,8 @@ RSpec.describe "pet edit page", type: :feature do
   it "user can change adoption status to pending" do
     visit "/pets/#{@pet.id}"
     click_link "Change to Adoption Pending"
+    expect(page).to have_content("Adoption status: Pending")
     expect(current_path).to eq("/pets/#{@pet.id}")
-    expect(page).to have_content("Pending")
   end
 
   it "user can update from the pets index" do
