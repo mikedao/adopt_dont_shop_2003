@@ -7,6 +7,10 @@ class Pet < ApplicationRecord
     where(adoption_status: :true)
   end
 
+  def self.pending_only
+    where(adoption_status: :false)
+  end
+
   def self.order_by_adoption_status
     order("adoption_status DESC NULLS LAST ")
   end

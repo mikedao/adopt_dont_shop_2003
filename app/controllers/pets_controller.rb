@@ -3,6 +3,8 @@ class PetsController < ApplicationController
   def index
     if params[:adoption_status] == "true"
       @pets = Pet.all.adoptable_only
+    elsif params[:adoption_status] == "false"
+      @pets = Pet.all.pending_only
     else
       @pets = Pet.all.order_by_adoption_status
     end
