@@ -9,7 +9,7 @@ RSpec.describe "pets index page", type: :feature do
       name: "Bruno",
       approximate_age: "4",
       sex: "M",
-      adoption_status: "Pending",
+      adoption_status: false,
       shelter_id: @shelter.id)
     @pet2 = Pet.create(
       image_path: "https://cdn.pixabay.com/photo/2015/11/17/13/13/dogue-de-bordeaux-1047521_1280.jpg",

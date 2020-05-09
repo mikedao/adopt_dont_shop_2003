@@ -6,7 +6,7 @@
   Total Pets: <%= @shelter.pet_count %>
 </h2>
 <div class="pets_list">
-  <% @shelter.pets.each do |pet| %>
+  <% @shelter.pets.order_by_adoption_status.each do |pet| %>
     <ul class="pet_profile">
       <img src="<%= pet.image_path %>" alt="<%= pet.image_path %>" class="pet_index_image">
       <li>Name: <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></li>
