@@ -11,6 +11,13 @@ RSpec.describe "pet edit page", type: :feature do
                       sex: "M",
                       shelter_id: @shelter.id,
                       adoption_status: true)
+    @pet2 = Pet.create(image_path: "https://cdn.pixabay.com/photo/2015/06/08/15/02/pug-801826_1280.jpg",
+                      name: "Buck",
+                      description: "Best dog",
+                      approximate_age: "4",
+                      sex: "M",
+                      shelter_id: @shelter.id,
+                      adoption_status: false)
   end
 
   it "user goes to edit page after clicking 'Update Pet'" do
@@ -41,6 +48,13 @@ RSpec.describe "pet edit page", type: :feature do
     click_link "Change to Adoption Pending"
     expect(page).to have_content("Adoption status: Pending")
     expect(current_path).to eq("/pets/#{@pet.id}")
+  end
+
+  it "user can change adoption status to adoptable" do
+    visit "/pets/#{@pet2.id}"
+    click_link "Change to Adoptable"
+    expect(page).to have_content("Adoption status: Adoptable")
+    expect(current_path).to eq("/pets/#{@pet2.id}")
   end
 
   it "user can update from the pets index" do
