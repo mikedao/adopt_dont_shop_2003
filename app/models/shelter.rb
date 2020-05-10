@@ -8,9 +8,10 @@ class Shelter < ApplicationRecord
   end
 
   def self.order_by_num_adopatable
-    joins(:pets)
+    left_outer_joins(:pets)
+    .where(:pets => {:adoption_status => true})
     .group(:id)
-    .order("name DESC")
+    .order('COUNT(shelter_id) DESC')
   end
 
   def self.order_by_name
