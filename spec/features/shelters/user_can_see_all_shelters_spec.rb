@@ -60,5 +60,16 @@ RSpec.describe "shelters index page", type: :feature do
         expect(page.all('.shelter').last).to have_content(@shelter1.name)
       end
     end
+
+    it "by shelter name" do
+      visit "/shelters"
+      click_link "Sort by Shelter Name"
+      expect(current_path).to eq("/shelters")
+      within ".shelter_list" do
+        expect(page.all('.shelter').last).to have_content(@shelter2.name)
+      end
+    end
+
   end
+
 end

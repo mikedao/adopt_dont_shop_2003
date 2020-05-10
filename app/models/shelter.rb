@@ -7,4 +7,14 @@ class Shelter < ApplicationRecord
     pets.count
   end
 
+  def self.order_by_num_adopatable
+    joins(:pets)
+    .group(:id)
+    .order("name DESC")
+  end
+
+  def self.order_by_name
+    order("name")
+  end
+
 end
