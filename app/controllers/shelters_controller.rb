@@ -1,6 +1,13 @@
 class SheltersController < ApplicationController
+
   def index
-    @shelters = Shelter.all
+    if params[:order_by_num_adopatable] == "true"
+      @shelters = Shelter.order_by_num_adopatable
+    elsif params[:order_by_name] == "true"
+      @shelters = Shelter.order_by_name
+    else
+      @shelters = Shelter.all
+    end
   end
 
   def show

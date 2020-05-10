@@ -11,6 +11,18 @@ RSpec.describe "shelters index page", type: :feature do
       approximate_age: "4",
       sex: "M",
       shelter_id: @shelter1.id)
+    @pet2 = Pet.create(
+      image_path: "https://cdn.pixabay.com/photo/2015/06/08/15/02/pug-801826_1280.jpg",
+      name: "Buck",
+      approximate_age: "6",
+      sex: "M",
+      shelter_id: @shelter2.id)
+    @pet3 = Pet.create(
+      image_path: "https://cdn.pixabay.com/photo/2015/06/08/15/02/pug-801826_1280.jpg",
+      name: "Billy",
+      approximate_age: "2",
+      sex: "F",
+      shelter_id: @shelter2.id)
   end
 
   it "can see all shelter names" do
@@ -38,4 +50,26 @@ RSpec.describe "shelters index page", type: :feature do
       expect(current_path).to eq("/shelters")
     end
   end
+
+  describe "shelters can be sorted" do
+    it "by number of adoptable pets" do
+      visit "/shelters"
+      click_link "Sort by Number of Adoptable Pets"
+      expect(current_path).to eq("/shelters")
+      within ".shelter_list" do
+        expect(page.all('.shelter').last).to have_content(@shelter1.name)
+      end
+    end
+
+    it "by shelter name" do
+      visit "/shelters"
+      click_link "Sort by Shelter Name"
+      expect(current_path).to eq("/shelters")
+      within ".shelter_list" do
+        expect(page.all('.shelter').last).to have_content(@shelter2.name)
+      end
+    end
+
+  end
+
 end
