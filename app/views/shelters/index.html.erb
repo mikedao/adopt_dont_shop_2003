@@ -1,0 +1,12 @@
+<h3><%= link_to "Click here to see all pets","/pets" %></h3>
+<h3><%= link_to "Click here to see all shelters","/shelters" %></h3>
+
+<h1>All Shelters</h1>
+
+<% @shelters.each do |shelter| %>
+  <h2><%= link_to "#{shelter.name}","/shelters/#{shelter.id}" %></h2>
+  <%= link_to "Delete Shelter", {:controller => "shelters", :action => "destroy", :id => shelter.id}, method: :delete %>
+  <%= link_to "Update Shelter", {:controller => "shelters", :action => "edit", :id => shelter.id} %>
+<% end %>
+
+<a href="/shelters/new">New Shelter</a>

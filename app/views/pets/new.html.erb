@@ -1,0 +1,13 @@
+<h3><%= link_to "Click here to see all pets","/pets" %></h3>
+<h3><%= link_to "Click here to see all shelters","/shelters" %></h3>
+
+<h1>Fill in New Pet Info</h1>
+<%= form_tag "/shelters/#{@current_shelter_id}/pets", method: :post do %>
+<%= text_field_tag :image, "Image of pet" %>
+  <%= text_field_tag :name, "Name" %>
+  <%= text_field_tag :approximate_age, "Age" %>
+  <%= text_field_tag :sex, "sex" %>
+  <% text_field :status, true %>
+  <% text_field :shelter_id, @current_shelter_id %>
+  <%= submit_tag "Create Pet" %>
+<% end %>
